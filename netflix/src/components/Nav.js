@@ -1,11 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 const Nav = () => {
+
+  const [show,setShow] = useState(false);
+
+  const transitionNavBar = ()=>{
+    if(window.scrollY >100){
+      setShow(true);
+    }else{
+      setShow(false);
+    }
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll",transitionNavBar);
+    return ()=>window.removeEventListener("scroll",transitionNavBar);
+  },[])
+
+
+
   return (
-    <div className='nav'>
+    <div className={`nav ${show  && 'nav-black'}`}>
       <div className='nav-contents'>
-        <img className='nav-logo' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANQAAAB4CAMAAAC93iy/AAAAclBMVEUAAADjCRToCRTuCRXrCRV1BQrCCBFOAwfgCRPVCRMdAQLRCRJJAwa1BxC3Bw9cBAgYAQJWAwdjBAgTAAGKBQxwBAnaCRMjAQN/BQtrBAmqBw8MAAE3AgVDAwaEBQw7AgUrAQSgBg6WBg0nAgMxAgT6ChYWjFmIAAAEL0lEQVR4nO2Z2bKiMBBAQxI2uYKggOCCovf/f3FIJ2yKM3inR2qq+jyxBMIhoZM0jBEEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAzSeyG1Oxc0n7vsrdH7KvmYGw/sWJsmz4cS7aM3eD66DCuroDzF9bdq2jPROPdv8LhVkOkd1xf7fiwHQtrhFCuJbceOTKWZ+ND3Lk191LX83Azri5QN/CgurMubApUULWo8aTk1Uipp+NvS628R6n8pZTVSeWgwY3GWVeX40lx56Kl/A9KsVJC2S3sQGPLEsXJdD+ZLCB11zVA1akYnMCSKl9J8ZZvkBKwbQ1O9VJdUfGbb2r47IOubzoMjpORsuQLKX/d4sTNwXOoNkM+OHVppbyuaHhdzZLaS3gXzVYEdxAJstR+UopPdvJKjk9pqWxcaIbUSUc823xelofk1ErxcFpqvZ245kuOT5mWeluKrU2n28JDiB2ylJXFC0jFuoHine7qFbaUPC8gpQM5r+HodFf/KynuHBaQ2g3GDX5Cl7JEtYBU1Y9waPF8KCXrSampa/CkBqO5QBp4FZ2UCsnPUmHsKmJ3htTeUL0hlfYN9VASR8oqpmYUGeAFf5aypABk+obUwW+l0OL5SKqJPl+v5n58NLK+kOpfznwpVptq/Du6FIRW/7iA1EVX0y5+EKW8NXyqyenzUkxPJAXiF9VK7cEmrF7O0udIiR98U90y4WHZjyBlRQ4IPLeUF2hGg8iL6LcznN6RcvW7E+d/IAWLNH4NHqT4euoNIo5TXaAKGCL6pgnTU8pPzyiY232OOHkkTSsV9qH9k1J1N6HBDH+tVCGXkDq2Y29z8ILm1Emd/CWk9v24IVKGRivVTy0/up6CSuFyjhgqOqn030g9XD+WSqDPZ7WOFl/4UsyblDLFDttNH9zfkTrebrd8tdkepqRCk6PQK1+8UNFLXeWEVFjY+/OuLtdh0Mfc+VIWF4J7me846/L4JGUSY4XOOfMAOUeRsH6yN55ReJzLBpPMfFvK3FIlQ+MnKfMam1ktbEistN9AKm+zZb9JO/9QCq5/klpBCakWUiatji/VvriPSekfHb6KD3oBjDZVH0gl3lwplVGXAylYjj1laLvcOp+UOgwSYzlsS5y/UyMpXeM4UKinV8sJbvE+UNyvdTMZL7pweEiiKEoeEif367UsmwDjOEHgZ5b5pnxlqKVsqE3qQK6nS8EKX6qWA6nouwlcWeCsrzu7iGLX/dH/sMMmv9yr05cbJ3B9GWSWgIiwCaETmyE31/0CaVYxlNp8Ny3SxF9djYu6bhuyVR23Uk2Y8bZ99W+dyZXO+6ib8TaY7s52EVc3lBvPID/GSdvh0m/4BnHqdqwsCGu0Ye/HrOx63TQcTqIsPk3N7paiipd+AoIgCIIgCIIgCIIgCIIgCIIgCIIgCIIgiP+HX69GScTcyCWJAAAAAElFTkSuQmCC" alt='Netflix-logo'/>
+        <img className='nav-logo' src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt='Netflix-logo'/>
 
 
         <img className='nav-avatar' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRel4c26sEwdj81loUzjfgikPTZXdlfHh3MnJAcKP2vkA&s" alt='avatar' />

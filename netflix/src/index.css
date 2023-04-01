@@ -1,3 +1,7 @@
+*{
+  margin:0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +9,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.nav{
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  width: 100%;
+  height: 30px;
+  z-index: 1;
+
+  /*Animation*/
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.nav-black{
+  background-color: black;
 }
 
 code {
@@ -20,9 +40,66 @@ code {
 .nav-logo{
   position: fixed;
   left: 0;
+  top: 20px;
+  width: 80px;
+  cursor: pointer;
+  padding: 5px 20px;
 }
 
 .nav-avatar{
   position: fixed;
   right: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.banner{
+position: relative;
+height: 450px;
+object-fit: contain;
+color: white;
+}
+
+.banner-contents{
+  margin-left: 30px;
+  padding-top: 150px;
+  height: 190 px;
+}
+
+.banner-title{
+  font-size: 3rem;
+  font-weight: 800;
+  padding-bottom: 0.3rem;
+}
+.banner-description{
+  width: 45rem;
+  line-height: 1.3;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  max-width: 360px;
+  height: 80px;
+}
+.banner-fadeBottom{
+  height: 7.4rem;
+  background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
+}
+.banner-btn{
+  cursor: pointer;
+  color:#fff;
+  outline: none;
+  border:none;
+  font-weight: 700;
+  border-radius: 0.2vw;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-right: 1rem;
+  padding-top: 0.5rem;
+  background-color: rgba(51,51,51,0.5);
+  padding-bottom: 0.5rem;
+}
+.banner-btn:hover{
+  background-color: #e6e6e6;
+  color: #111;
+  transition: all 0.2s;
 }
