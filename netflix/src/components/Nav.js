@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 const Nav = () => {
-
+  const navigate = useNavigate();
   const [show,setShow] = useState(false);
 
   const transitionNavBar = ()=>{
@@ -23,10 +24,14 @@ const Nav = () => {
   return (
     <div className={`nav ${show  && 'nav-black'}`}>
       <div className='nav-contents'>
-        <img className='nav-logo' src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt='Netflix-logo'/>
+        <img
+        onClick={()=>navigate("/")}
+        className='nav-logo' src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" alt='Netflix-logo'/>
 
 
-        <img className='nav-avatar' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRel4c26sEwdj81loUzjfgikPTZXdlfHh3MnJAcKP2vkA&s" alt='avatar' />
+        <img 
+        onClick={()=>navigate("/profile")}
+        className='nav-avatar' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRel4c26sEwdj81loUzjfgikPTZXdlfHh3MnJAcKP2vkA&s" alt='avatar' />
         </div>
     </div>
   )
