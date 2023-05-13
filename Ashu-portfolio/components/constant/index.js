@@ -21,35 +21,35 @@ export const projects  = [
     desc:"I have created an Amazon clone with full functionality for adding items to the store, as well as login and registration capabilities. I have used Redux Toolkit to manage the application state and Firebase for the login and registration processes. Additionally, I have implemented a dummy product API to fetch product data."
   },
   {
-    id:3,
+    id:4,
     image_rul:'./project/portfolio.png',
     name:"My Portfolio Website",
     tech_stacks:['./images/react.png','./images/next.png','./images/ts.png','./images/tailwindcss.jfif'],
     desc:"I have created a simple software engineering portfolio website featuring an introductory section, my web development skills, my past and current experiences, and contact information."
   },
   {
-    id:4,
+    id:5,
     image_rul:'./project/tictac.png',
     name:"Tic tac toe Game",
     tech_stacks:['./images/react.png','./images/ts.png'],
     desc:"I have created a fun Tic Tac Toe game using React.js with the added power of TypeScript for type safety. The game allows you to choose whether you want to play as X or O, giving you the flexibility to decide your first move."
   },
   {
-    id:5,
+    id:6,
     image_rul:'./project/guessword.png',
     name:"Guess the word Game",
     tech_stacks:['./images/react.png','./images/ts.png'],
     desc:"Guess the Word game is an exciting game where you are challenged to guess a secret word. You have three guesses to correctly identify the word. Each guess allows you to enter a letter and its position within the word. By strategically providing the correct letter and position, you inch closer to unraveling the mystery word. Can you use your deduction skills to guess the word within three attempts?"
   },
   {
-    id:6,
+    id:7,
     image_rul:'./project/kanban.png',
     name:"Kanban Board",
     tech_stacks:['./images/react.png','./images/redux.png','./images/ts.png'],
     desc:"I have developed a fully customizable Kanban board where you can create a board according to your requirements. This board allows you to add tasks and move them across different columns."
   },
   {
-    id:7,
+    id:8,
     image_rul:'./project/rolldice.png',
     name:"Roll dice and collect points game",
     tech_stacks:['./images/html.png','./images/css.png','./images/js.jfif'],

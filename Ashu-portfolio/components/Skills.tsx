@@ -15,7 +15,7 @@ const Skills = () => {
 
     <h3 className='absolute top-32 uppercase tracking-[3px] text-gray-500 text-sm'>Hover over a skill for currency profieciency</h3>
 
-    <div className='grid grid-cols-4 gap-4 md:gap-5 md:grid-cols-4 lg:grid-cols-5 ' >
+    <div className='grid grid-cols-5 gap-4 md:gap-5  lg:grid-cols-6 lg:gap-8' >
       <Skill directionLeft={true} logo={"./images/react.png"} value={80}/>
       <Skill directionLeft={true} logo={"./images/nextjs.png"} value={75}/>
       <Skill directionLeft={true} logo={"./images/redux.png"} value={70}/>

@@ -30,7 +30,7 @@ const Experiance = () => {
         position='Web Developer'
         startDate='11/04/2022'
         endDate='11/11/2022'
-        summaryPoints={["Learn PHP as a backend language to enhance your web development skills","Expand your WordPress expertise by creating multiple websites and developing custom plugins and themes."]}
+        summaryPoints={["Learn PHP as a backend language to enhance my web development skills","Expand my WordPress expertise by creating multiple websites and developing custom plugins and themes."]}
         skillsImgs={['/images/html.png','/images/css.png','./images/js.jfif','/images/wordpress.jfif','./images/php.png']}
         />
         <Card 
