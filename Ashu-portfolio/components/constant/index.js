@@ -1,4 +1,11 @@
 export const projects  = [
+  {
+    id:11,
+    image_rul:'./project/3D-game.png',
+    name:"3D Game",
+    tech_stacks:['./images/react.png','./images/threejs.png'],
+    desc:"I have created a 3D fun game using R3F(React Three Fiber) lib in reacrt which build on top of three js for creating 3D coolstuf in react."
+  },
  {
     id:1,
     image_rul:'./project/netflix-clone.png',

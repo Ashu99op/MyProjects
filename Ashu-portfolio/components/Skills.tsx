@@ -16,13 +16,13 @@ const Skills = () => {
     <h3 className='absolute top-32 uppercase tracking-[3px] text-gray-500 text-sm'>Hover over a skill for currency profieciency</h3>
 
     <div className='grid grid-cols-5 gap-4 md:gap-5  lg:grid-cols-6 lg:gap-8' >
-      <Skill directionLeft={true} logo={"./images/react.png"} value={80}/>
-      <Skill directionLeft={true} logo={"./images/nextjs.png"} value={75}/>
+      <Skill directionLeft={true} logo={"./images/react.png"} value={90}/>
+      <Skill directionLeft={true} logo={"./images/nextjs.png"} value={70}/>
       <Skill directionLeft={true} logo={"./images/redux.png"} value={70}/>
-      <Skill directionLeft={true} logo={"./images/threejs.png"} value={30}/>
+      <Skill directionLeft={true} logo={"./images/threejs.png"} value={70}/>
       <Skill directionLeft={true} logo={"./images/html.png"} value={95}/>
       <Skill directionLeft={true} logo={"./images/css.png"} value={90}/>
-      <Skill directionLeft={true} logo={"./images/js.png"} value={75}/>
+      <Skill directionLeft={true} logo={"./images/js.png"} value={80}/>
       <Skill directionLeft={true} logo={"./images/ts.png"} value={70}/>
       <Skill directionLeft={true} logo={"./images/nodejs.png"} value={40}/>
       <Skill  logo={"./images/graphql.png"} value={50}/>
