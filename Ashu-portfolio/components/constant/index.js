@@ -1,10 +1,19 @@
 export const projects  = [
   {
+    id:91,
+    image_rul:'./project/chat-with-pdf.png',
+    name:"Chat With PDF App",
+    tech_stacks:['./images/react.png','./images/nextjs.png','./images/firebase.png','./images/ts.png','./images/tailwindcss.jfif'],
+    desc:"As name tells Chat with PDF app which allows users to upload dopcuments and chat to their documents using AI technology",
+    URL:"https://chat-with-pdf-lime-beta.vercel.app/",
+  },
+  {
     id:11,
     image_rul:'./project/3D-game.png',
     name:"3D Game",
     tech_stacks:['./images/react.png','./images/threejs.png'],
-    desc:"I have created a 3D fun game using R3F(React Three Fiber) lib in reacrt which build on top of three js for creating 3D coolstuf in react."
+    desc:"I have created a 3D fun game using R3F(React Three Fiber) lib in reacrt which build on top of three js for creating 3D coolstuf in react.",
+    URL:'https://as-game-three.vercel.app/',
   },
  {
     id:1,
