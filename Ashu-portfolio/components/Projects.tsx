@@ -1,6 +1,7 @@
 import React from 'react'
 import {motion } from "framer-motion"
 import {projects} from './constant'
+import Link from 'next/link'
 
 
 function Projects() {
@@ -31,7 +32,9 @@ function Projects() {
 
                 <div className='space-y-8 px-0 max-w-6xl'>
                   
-                  <h4 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-center'><span className='underline decoration-[#F7AB0A]/50'>Project {i+1} of {projects.length} :</span> {project.name}</h4>
+                  <h4 className='text-2xl md:text-3xl lg:text-4xl font-semibold text-center'><span className='underline decoration-[#F7AB0A]/50'>Project {i+1} of {projects.length} : {" "}</span> 
+                  {project.URL ? <Link href={project.URL!} target="_blank">{project.name}</Link> : project.name}
+                  </h4>
                 </div>
                 <div className='flex items-center space-x-2 justify-center'>
                   {project.tech_stacks.map((item,i)=>(
