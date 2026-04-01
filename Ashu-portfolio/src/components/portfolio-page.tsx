@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import CursorAura from "@/components/cursor-aura";
 import SectionReveal from "@/components/section-reveal";
+import AmbientBackground from "@/components/ambient-background";
 import type { PortfolioData } from "@/data/portfolio";
 
 type PortfolioPageProps = {
@@ -203,12 +204,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
 
   return (
     <main className="portfolio-shell">
+      <AmbientBackground />
       <CursorAura />
       <div className="portfolio-noise" />
-      <div className="portfolio-grid" />
-      <div className="portfolio-aurora portfolio-aurora-left" />
-      <div className="portfolio-aurora portfolio-aurora-right" />
-      <div className="portfolio-aurora portfolio-aurora-center" />
 
       <header className="sticky top-4 z-50 mx-auto flex w-min max-w-[calc(100%-1rem)] justify-center px-4">
         <nav className="nav-pill flex items-center gap-2 rounded-full px-3 py-3 md:gap-3 md:px-5">
@@ -241,20 +239,19 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         </nav>
       </header>
 
-      <section id="hero" className="section-shell hero-shell">
+      <section id="hero" className="section-shell hero-shell flex flex-col items-center justify-center text-center pb-24">
         <div className="hero-backlight" />
-        <div className="hero-rings" />
-
-        <div className="grid items-start gap-8 xl:grid-cols-[0.62fr_0.38fr]">
-          <SectionReveal className="space-y-8">
-            <span className="section-label">
-              <BriefcaseBusiness className="h-3.5 w-3.5" />
+        
+        <div className="max-w-4xl w-full mx-auto relative z-10">
+          <SectionReveal className="space-y-8 flex flex-col items-center">
+            <span className="section-label inline-flex">
+              <Sparkles className="h-3.5 w-3.5 text-[var(--gold)]" />
               {data.hero.badge}
             </span>
 
-            <div className="space-y-5">
+            <div className="space-y-6 flex flex-col items-center">
               <p className="hero-kicker">Frontend engineer for SaaS, AI products, and modern web teams</p>
-              <h1 className="section-title hero-display text-white">{data.hero.headline}</h1>
+              <h1 className="section-title hero-display text-white max-w-[12ch]">{data.hero.headline}</h1>
 
               <p className="hero-subcopy text-white/90">
                 <span className="accent-stroke relative inline-block pb-2">{data.hero.subheadline}</span>
@@ -265,17 +262,17 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3">
-              <Link href="#projects" className="primary-button">
+            <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+              <Link href="#projects" className="primary-button text-base px-6 py-3">
                 Explore Projects
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <Link href="#experience" className="secondary-button">
+              <Link href="#experience" className="secondary-button text-base px-6 py-3">
                 View Experience
               </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-3">
+            <div className="mt-12 grid w-full gap-4 sm:grid-cols-3 max-w-3xl">
               {data.hero.stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -283,86 +280,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ duration: 0.55, delay: 0.14 + index * 0.08 }}
-                  className="hero-stat-card rounded-[1.7rem] p-5"
+                  className="hero-stat-card rounded-[1.7rem] p-6 text-center"
                 >
-                  <p className="text-3xl font-semibold text-white md:text-[2rem]">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{stat.label}</p>
+                  <p className="text-3xl font-semibold text-white md:text-[2.2rem]">{stat.value}</p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--gold-strong)] font-medium uppercase tracking-wider">{stat.label}</p>
                 </motion.div>
               ))}
-            </div>
-          </SectionReveal>
-
-          <SectionReveal delay={0.1}>
-            <div className="hero-summary-card rounded-[2rem] p-6 md:p-7">
-              <div className="space-y-3">
-                <p className="hero-kicker">Snapshot</p>
-                <h2 className="section-title text-3xl leading-tight text-white md:text-[2.35rem]">
-                  Building clean, scalable interfaces with strong product instincts.
-                </h2>
-                <p className="text-base leading-8 text-white/72">
-                  Recent work spans AI-powered platforms, enterprise dashboards, and multi-tenant SaaS
-                  products with a focus on clarity, responsiveness, and polished execution.
-                </p>
-              </div>
-
-              <div className="mt-6 grid gap-3">
-                <div className="hero-note-card">
-                  <BadgeCheck className="h-4 w-4 text-[var(--gold)]" />
-                  <div>
-                    <p className="hero-signal-label">Current Role</p>
-                    <p className="hero-signal-value">{data.hero.status}</p>
-                  </div>
-                </div>
-
-                <div className="hero-note-card">
-                  <MapPin className="h-4 w-4 text-[var(--gold)]" />
-                  <div>
-                    <p className="hero-signal-label">Location</p>
-                    <p className="hero-signal-value">{data.hero.location}</p>
-                  </div>
-                </div>
-
-                <div className="hero-note-card">
-                  <Sparkles className="h-4 w-4 text-[var(--gold)]" />
-                  <div>
-                    <p className="hero-signal-label">Availability</p>
-                    <p className="hero-signal-value">{data.hero.availability}</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)]">
-                  Core Focus
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {focusAreas.map((item) => (
-                    <span key={item} className="stack-pill">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {data.socials.map((social) => {
-                  const Icon = socialIcons[social.label as keyof typeof socialIcons];
-
-                  return (
-                    <Link
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="social-chip"
-                    >
-                      <Icon className="h-4 w-4" />
-                      {social.label}
-                    </Link>
-                  );
-                })}
-              </div>
             </div>
           </SectionReveal>
         </div>
@@ -400,9 +323,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
               <p className="about-lead">{data.story.paragraphs[0]}</p>
 
               <div className="about-story-list mt-8">
-                {data.story.paragraphs.map((paragraph, index) => (
+                {data.story.paragraphs.slice(1).map((paragraph, index) => (
                   <div key={paragraph} className="about-story-row">
-                    <div className="story-panel-index">{String(index + 1).padStart(2, "0")}</div>
+                    <div className="story-panel-index">{String(index + 2).padStart(2, "0")}</div>
                     <p className="text-base leading-8 text-white/76">{paragraph}</p>
                   </div>
                 ))}
@@ -436,16 +359,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 })}
               </div>
 
-              <div className="about-summary-row mt-6">
-                <div className="about-summary-card">
-                  <p className="hero-signal-label">Based In</p>
-                  <p className="hero-signal-value">{data.contact.location}</p>
-                </div>
-                <div className="about-summary-card">
-                  <p className="hero-signal-label">Current Role</p>
-                  <p className="hero-signal-value">{data.hero.status}</p>
-                </div>
-              </div>
+              {/* Summary cards removed as requested */}
             </div>
           </SectionReveal>
         </div>
@@ -479,32 +393,28 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
             />
           </SectionReveal>
 
-          <SectionReveal delay={0.08}>
-            <div className="skills-board rounded-[2.1rem] p-6 md:p-8">
-              <div className="grid gap-6 xl:grid-cols-2">
-                {data.skills.map((group) => (
-                  <motion.div
-                    key={group.title}
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                    className="skills-group"
-                  >
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--gold)]">
-                      {group.title}
-                    </p>
-
-                    <div className="mt-5 flex flex-wrap gap-3">
-                      {group.items.map((item) => (
-                        <span key={item} className="skill-pill">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </SectionReveal>
+          <div className="grid gap-5 md:grid-cols-2">
+            {data.skills.map((group, groupIndex) => (
+              <SectionReveal key={group.title} delay={groupIndex * 0.1}>
+                <motion.div
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                  className="skills-board rounded-[2.1rem] p-7 md:p-9 border border-white/10 hover:border-[rgba(239,189,84,0.35)] shadow-lg hover:shadow-2xl hover:shadow-[rgba(239,189,84,0.1)] transition-all flex flex-col items-start h-full"
+                >
+                  <p className="text-sm font-bold uppercase tracking-[0.28em] text-[var(--gold)]">
+                    {group.title}
+                  </p>
+                  <div className="mt-6 flex flex-wrap gap-3">
+                    {group.items.map((item) => (
+                      <span key={item} className="skill-pill shadow-sm">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </SectionReveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -535,8 +445,8 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 <Sparkles className="h-3.5 w-3.5" />
                 Contact
               </span>
-              <h2 className="section-title text-4xl leading-tight text-white md:text-6xl">
-                Open to frontend engineering roles, strong product teams, and meaningful collaborations.
+              <h2 className="section-title text-4xl leading-tight text-white md:text-[3.25rem]">
+                Let's build something extraordinary together.
               </h2>
               <p className="text-base leading-8 text-[var(--muted)] md:text-lg">
                 If you are building something that values clarity, speed, and premium execution, I would
@@ -607,11 +517,6 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
             })}
           </div>
         </SectionReveal>
-
-        <div className="portfolio-footer">
-          <p>Designed and built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.</p>
-          <p>{data.hero.location}</p>
-        </div>
       </section>
     </main>
   );
