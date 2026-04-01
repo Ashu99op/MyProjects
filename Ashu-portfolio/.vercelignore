@@ -1,0 +1,11 @@
+# Ignore local build artifacts and dependencies (not needed for Vercel build)
+node_modules
+.next
+.next-app
+.out
+.vercel
+
+# Optional: ignore local caches / extra files
+**/cache
+**/*.log
+**/*.tsbuildinfo
