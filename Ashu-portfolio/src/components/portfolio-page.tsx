@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
-  BadgeCheck,
-  BriefcaseBusiness,
   Camera,
   GitBranch,
   Globe,
@@ -193,14 +191,6 @@ function ProjectCard({
 
 export default function PortfolioPage({ data }: PortfolioPageProps) {
   const projects = data.projects;
-  const focusAreas = [
-    "React.js",
-    "Next.js",
-    "TypeScript",
-    "Tailwind CSS",
-    "Framer Motion",
-    "AI Product UI",
-  ];
 
   return (
     <main className="portfolio-shell">
@@ -446,7 +436,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 Contact
               </span>
               <h2 className="section-title text-4xl leading-tight text-white md:text-[3.25rem]">
-                Let's build something extraordinary together.
+                Let&apos;s build something extraordinary together.
               </h2>
               <p className="text-base leading-8 text-[var(--muted)] md:text-lg">
                 If you are building something that values clarity, speed, and premium execution, I would
