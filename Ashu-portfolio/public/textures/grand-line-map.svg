@@ -1,0 +1,23 @@
+<svg width="2048" height="1536" viewBox="0 0 2048 1536" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2048" height="1536" fill="#1A1510"/>
+  <rect x="52" y="52" width="1944" height="1432" rx="40" fill="#D6B885" stroke="#8A5E2C" stroke-width="18"/>
+  <rect x="92" y="92" width="1864" height="1352" rx="28" fill="#E8D3A7" stroke="#A36E34" stroke-width="6" stroke-dasharray="18 18"/>
+  <path d="M256 352C388 280 480 250 600 260C760 274 860 360 980 380C1140 408 1270 330 1410 332C1560 334 1726 444 1820 528" stroke="#7F5A2C" stroke-width="16" stroke-linecap="round"/>
+  <path d="M286 980C408 888 516 846 650 852C806 858 918 964 1042 1008C1170 1054 1302 1046 1410 996C1510 948 1608 862 1752 828" stroke="#7F5A2C" stroke-width="16" stroke-linecap="round"/>
+  <path d="M1040 248V1292" stroke="#A36E34" stroke-width="10" stroke-dasharray="24 24"/>
+  <path d="M320 768H1736" stroke="#A36E34" stroke-width="10" stroke-dasharray="24 24"/>
+  <circle cx="1040" cy="768" r="290" stroke="#9A6B35" stroke-width="14"/>
+  <circle cx="1040" cy="768" r="226" stroke="#B98A4A" stroke-width="7" stroke-dasharray="14 20"/>
+  <path d="M1040 462L1092 716L1040 1074L988 716L1040 462Z" fill="#8A4D2A"/>
+  <path d="M734 768L988 716L1346 768L988 820L734 768Z" fill="#8A4D2A"/>
+  <circle cx="1040" cy="768" r="74" fill="#B53F2D" stroke="#7A2418" stroke-width="10"/>
+  <path d="M538 428C570 372 648 340 744 360C818 374 868 426 878 500C888 574 838 650 754 676C648 708 556 662 518 590" fill="#B89A63" stroke="#7B592A" stroke-width="8"/>
+  <path d="M1442 932C1494 844 1614 800 1716 838C1798 868 1854 948 1846 1034C1836 1140 1752 1220 1642 1224C1536 1228 1438 1152 1416 1044" fill="#B89A63" stroke="#7B592A" stroke-width="8"/>
+  <path d="M560 1112C608 1044 710 1002 814 1018C936 1038 1012 1138 998 1232C984 1322 866 1386 736 1362C610 1338 518 1236 560 1112Z" fill="#C2A46B" stroke="#7B592A" stroke-width="8"/>
+  <path d="M1544 416C1588 346 1686 304 1784 320C1892 338 1960 428 1946 522C1932 620 1834 694 1728 690C1616 686 1512 586 1544 416Z" fill="#C2A46B" stroke="#7B592A" stroke-width="8"/>
+  <path d="M494 440C470 476 452 522 450 568" stroke="#6E4B24" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 12"/>
+  <path d="M1568 430C1526 478 1498 530 1484 592" stroke="#6E4B24" stroke-width="6" stroke-linecap="round" stroke-dasharray="10 12"/>
+  <path d="M718 1126C846 1166 958 1168 1094 1138C1242 1106 1366 1038 1486 934" stroke="#6E4B24" stroke-width="10" stroke-linecap="round" stroke-dasharray="18 18"/>
+  <text x="176" y="220" fill="#734A26" font-size="78" font-family="Georgia, serif" letter-spacing="12">GRAND LINE CHART</text>
+  <text x="1430" y="1354" fill="#734A26" font-size="54" font-family="Georgia, serif" letter-spacing="8">ASHUTOSH SAVANI</text>
+</svg>
