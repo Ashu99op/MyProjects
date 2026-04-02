@@ -45,17 +45,20 @@ const marqueeItems = [
 const craftSignals = [
   {
     title: "Scalable frontend systems",
-    description: "Reusable UI, consistent patterns, and structure that stays maintainable as products grow.",
+    description:
+      "Reusable UI, consistent patterns, and structure that stays maintainable as products grow.",
     icon: Layers3,
   },
   {
     title: "Product-minded polish",
-    description: "Interfaces that feel clean, smooth, and intentional without becoming noisy or overdesigned.",
+    description:
+      "Interfaces that feel clean, smooth, and intentional without becoming noisy or overdesigned.",
     icon: Sparkles,
   },
   {
     title: "Collaborative delivery",
-    description: "Comfortable working with clients and teams where clarity, ownership, and execution matter.",
+    description:
+      "Comfortable working with clients and teams where clarity, ownership, and execution matter.",
     icon: Workflow,
   },
 ];
@@ -70,10 +73,19 @@ function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="max-w-2xl space-y-4">
+    <div className="max-w-4xl mx-auto space-y-6 text-center flex flex-col items-center">
       <span className="section-label">{label}</span>
-      <h2 className="section-title text-4xl leading-tight text-white md:text-5xl">{title}</h2>
-      {description ? <p className="muted-copy text-base leading-8 md:text-lg">{description}</p> : null}
+      <h2 className="section-title text-4xl leading-tight text-white md:text-5xl lg:text-[3.5rem] tracking-tight">
+        {title}
+      </h2>
+      {description ? (
+        <>
+          <div className="h-px w-16 bg-linear-to-r from-transparent via-(--gold) to-transparent opacity-60" />
+          <p className="muted-copy text-base leading-8 md:text-lg max-w-2xl">
+            {description}
+          </p>
+        </>
+      ) : null}
     </div>
   );
 }
@@ -87,13 +99,23 @@ function ExperienceCard({
 }) {
   return (
     <SectionReveal delay={index * 0.08}>
-      <article className="experience-frame rounded-[2rem] p-6 md:p-8">
+      <motion.article
+        whileHover={{ borderColor: "rgba(239,189,84,0.2)" }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="experience-frame rounded-[2rem] p-6 md:p-8"
+      >
         <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/8 pb-6">
           <div className="flex items-center gap-4">
-            <div className="experience-index">{String(index + 1).padStart(2, "0")}</div>
+            <div className="experience-index">
+              {String(index + 1).padStart(2, "00")}
+            </div>
             <div className="space-y-1">
-              <h3 className="section-title text-3xl text-white">{item.company}</h3>
-              <p className="text-sm font-medium uppercase tracking-[0.24em] text-white/62">{item.role}</p>
+              <h3 className="section-title text-2xl text-white md:text-3xl">
+                {item.company}
+              </h3>
+              <p className="text-xs font-medium uppercase tracking-[0.24em] text-white/60 md:text-sm">
+                {item.role}
+              </p>
             </div>
           </div>
 
@@ -121,14 +143,17 @@ function ExperienceCard({
 
           <div className="grid gap-3">
             {item.outcomes.map((outcome) => (
-              <div key={outcome} className="experience-point rounded-[1.35rem] p-4">
+              <div
+                key={outcome}
+                className="experience-point rounded-[1.35rem] p-4"
+              >
                 <span className="experience-point-dot" />
                 <span>{outcome}</span>
               </div>
             ))}
           </div>
         </div>
-      </article>
+      </motion.article>
     </SectionReveal>
   );
 }
@@ -156,7 +181,9 @@ function ProjectCard({
         />
         <div className="project-image-glow" />
         <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-4">
-          <span className="project-year-pill">{featured ? `Featured ${project.year}` : project.year}</span>
+          <span className="project-year-pill">
+            {featured ? `Featured ${project.year}` : project.year}
+          </span>
           {project.href ? (
             <Link
               href={project.href}
@@ -173,13 +200,20 @@ function ProjectCard({
 
       <div className="space-y-5 p-6 md:p-7">
         <div className="space-y-3">
-          <h3 className="section-title text-3xl text-white md:text-[2rem]">{project.name}</h3>
-          <p className="text-sm leading-7 text-white/74 md:text-base">{project.description}</p>
+          <h3 className="section-title text-3xl text-white md:text-[2rem]">
+            {project.name}
+          </h3>
+          <p className="text-sm leading-7 text-white/74 md:text-base">
+            {project.description}
+          </p>
         </div>
 
         <div className="project-tag-row">
           {project.tags.map((tag) => (
-            <span key={tag} className={`project-tag ${featured ? "project-tag-featured" : ""}`}>
+            <span
+              key={tag}
+              className={`project-tag ${featured ? "project-tag-featured" : ""}`}
+            >
               {tag}
             </span>
           ))}
@@ -199,7 +233,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
       <div className="portfolio-noise" />
 
       <header className="sticky top-4 z-50 mx-auto flex w-min max-w-[calc(100%-1rem)] justify-center px-4">
-        <nav className="nav-pill flex items-center gap-2 rounded-full px-3 py-3 md:gap-3 md:px-5">
+        <nav role="navigation" aria-label="Main navigation" className="nav-pill flex items-center gap-2 rounded-full px-3 py-3 md:gap-3 md:px-5">
           <Link
             href="#hero"
             className="brand-pill inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em]"
@@ -213,7 +247,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="rounded-full px-4 py-2 text-sm text-white/72 hover:bg-white/6 hover:text-white"
+                className="rounded-full px-4 py-2 text-sm text-white/72 transition-all duration-200 hover:bg-white/8 hover:text-white hover:tracking-wide"
               >
                 {item.label}
               </Link>
@@ -229,9 +263,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         </nav>
       </header>
 
-      <section id="hero" className="section-shell hero-shell flex flex-col items-center justify-center text-center pb-24">
+      <section
+        id="hero"
+        className="section-shell hero-shell flex flex-col items-center justify-center text-center pb-24"
+      >
         <div className="hero-backlight" />
-        
+
         <div className="max-w-4xl w-full mx-auto relative z-10">
           <SectionReveal className="space-y-8 flex flex-col items-center">
             <span className="section-label inline-flex">
@@ -240,11 +277,17 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
             </span>
 
             <div className="space-y-6 flex flex-col items-center">
-              <p className="hero-kicker">Frontend engineer for SaaS, AI products, and modern web teams</p>
-              <h1 className="section-title hero-display text-white max-w-[12ch]">{data.hero.headline}</h1>
+              <p className="hero-kicker">
+                Frontend engineer for SaaS, AI products, and modern web teams
+              </p>
+              <h1 className="section-title hero-display text-white max-w-[12ch]">
+                {data.hero.headline}
+              </h1>
 
               <p className="hero-subcopy text-white/90">
-                <span className="accent-stroke relative inline-block pb-2">{data.hero.subheadline}</span>
+                <span className="accent-stroke relative inline-block pb-2">
+                  {data.hero.subheadline}
+                </span>
               </p>
 
               <p className="max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg">
@@ -253,11 +296,17 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
-              <Link href="#projects" className="primary-button text-base px-6 py-3">
+              <Link
+                href="#projects"
+                className="primary-button text-base px-6 py-3"
+              >
                 Explore Projects
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
-              <Link href="#experience" className="secondary-button text-base px-6 py-3">
+              <Link
+                href="#experience"
+                className="secondary-button text-base px-6 py-3"
+              >
                 View Experience
               </Link>
             </div>
@@ -272,8 +321,12 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                   transition={{ duration: 0.55, delay: 0.14 + index * 0.08 }}
                   className="hero-stat-card rounded-[1.7rem] p-6 text-center"
                 >
-                  <p className="text-3xl font-semibold text-white md:text-[2.2rem]">{stat.value}</p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--gold-strong)] font-medium uppercase tracking-wider">{stat.label}</p>
+                  <p className="text-3xl font-semibold text-white md:text-[2.2rem]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-[var(--gold-strong)] font-medium uppercase tracking-wider">
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -309,47 +362,55 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
 
         <div className="mt-10 grid gap-6 xl:grid-cols-[0.6fr_0.4fr]">
           <SectionReveal>
-            <div className="about-panel rounded-[2rem] p-6 md:p-8">
-              <p className="about-lead">{data.story.paragraphs[0]}</p>
-
-              <div className="about-story-list mt-8">
-                {data.story.paragraphs.slice(1).map((paragraph, index) => (
-                  <div key={paragraph} className="about-story-row">
-                    <div className="story-panel-index">{String(index + 2).padStart(2, "0")}</div>
-                    <p className="text-base leading-8 text-white/76">{paragraph}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="about-panel rounded-[2rem] p-8 md:p-10 space-y-6">
+              {data.story.paragraphs.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className={`leading-8 text-white/80 ${
+                    index === 0
+                      ? "section-title text-xl md:text-[1.45rem] text-white/95 pb-6 border-b border-white/8"
+                      : "text-base"
+                  }`}
+                >
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </SectionReveal>
 
           <SectionReveal delay={0.08}>
-            <div className="about-sidebar rounded-[2rem] p-6 md:p-7">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--gold)]">
-                What I Bring
-              </p>
+            <div className="about-sidebar rounded-[2rem] p-8 md:p-10">
+              <div className="flex flex-col items-center mb-8">
+                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[var(--gold)] mb-3">
+                  What I Bring
+                </p>
+                <div className="w-8 h-px bg-linear-to-r from-transparent via-(--gold) to-transparent opacity-60" />
+              </div>
 
-              <div className="mt-5 space-y-3">
+              <div className="space-y-6">
                 {craftSignals.map((signal) => {
                   const Icon = signal.icon;
 
                   return (
-                    <div key={signal.title} className="about-principle">
-                      <div className="craft-card-icon">
+                    <div
+                      key={signal.title}
+                      className="flex gap-4 items-start p-4 rounded-[1.1rem] border border-white/6 bg-white/2.5 hover:border-(--gold)/20 hover:bg-white/4 transition-all duration-300"
+                    >
+                      <div className="craft-card-icon shrink-0 mt-0.5">
                         <Icon className="h-4 w-4" />
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/76">
+                      <div className="space-y-1">
+                        <p className="text-sm font-bold uppercase tracking-[0.14em] text-white">
                           {signal.title}
                         </p>
-                        <p className="mt-2 text-sm leading-7 text-white/64">{signal.description}</p>
+                        <p className="text-sm leading-6 text-white/55">
+                          {signal.description}
+                        </p>
                       </div>
                     </div>
                   );
                 })}
               </div>
-
-              {/* Summary cards removed as requested */}
             </div>
           </SectionReveal>
         </div>
@@ -374,29 +435,29 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
 
       <section id="skills" className="section-shell">
         <div className="section-glow section-glow-left" />
-        <div className="grid gap-8 xl:grid-cols-[0.38fr_0.62fr]">
+        <div className="space-y-12">
           <SectionReveal>
             <SectionHeading
-              label="Skills"
-              title="A toolkit shaped around shipping premium interfaces with real product constraints."
-              description="The stack matters, but the bigger advantage is knowing how these pieces work together in delivery, performance, and design execution."
+              label="Technical Skills"
+              title="A high-performance toolkit refined for enterprise-grade product delivery."
+              description="This stack represents a curated selection of tools that enable me to build, scale, and optimize sophisticated web systems without compromise."
             />
           </SectionReveal>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {data.skills.map((group, groupIndex) => (
-              <SectionReveal key={group.title} delay={groupIndex * 0.1}>
+              <SectionReveal key={group.title} delay={groupIndex * 0.08}>
                 <motion.div
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                  className="skills-board rounded-[2.1rem] p-7 md:p-9 border border-white/10 hover:border-[rgba(239,189,84,0.35)] shadow-lg hover:shadow-2xl hover:shadow-[rgba(239,189,84,0.1)] transition-all flex flex-col items-start h-full"
+                  className="skills-board rounded-[2.1rem] p-6 md:p-8 border border-white/10 hover:border-[rgba(239,189,84,0.35)] shadow-lg hover:shadow-2xl hover:shadow-[rgba(239,189,84,0.1)] transition-all flex flex-col items-start h-full"
                 >
                   <p className="text-sm font-bold uppercase tracking-[0.28em] text-[var(--gold)]">
                     {group.title}
                   </p>
-                  <div className="mt-6 flex flex-wrap gap-3">
+                  <div className="mt-5 flex flex-wrap gap-2.5">
                     {group.items.map((item) => (
-                      <span key={item} className="skill-pill shadow-sm">
+                      <span key={item} className="skill-pill shadow-sm text-sm">
                         {item}
                       </span>
                     ))}
@@ -421,41 +482,51 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <SectionReveal key={project.name} delay={index * 0.05}>
-              <ProjectCard project={project} featured={Boolean(project.featured)} />
+              <ProjectCard
+                project={project}
+                featured={Boolean(project.featured)}
+              />
             </SectionReveal>
           ))}
         </div>
       </section>
 
       <section id="contact" className="section-shell pb-20">
-        <SectionReveal className="contact-shell rounded-[2.4rem] p-8 md:p-10 xl:p-12">
+        <SectionReveal className="contact-shell rounded-[2.4rem] p-6 md:p-10 xl:p-12">
           <div className="grid gap-10 xl:grid-cols-[0.56fr_0.44fr]">
-            <div className="max-w-3xl space-y-6">
+            <div className="space-y-6">
               <span className="section-label">
                 <Sparkles className="h-3.5 w-3.5" />
                 Contact
               </span>
-              <h2 className="section-title text-4xl leading-tight text-white md:text-[3.25rem]">
+              <h2 className="section-title text-3xl leading-tight text-white md:text-[3.25rem]">
                 Let&apos;s build something extraordinary together.
               </h2>
               <p className="text-base leading-8 text-[var(--muted)] md:text-lg">
-                If you are building something that values clarity, speed, and premium execution, I would
-                love to connect and explore how I can help.
+                If you are building something that values clarity, speed, and
+                premium execution, I would love to connect and explore how I can
+                help.
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <Link href={`mailto:${data.contact.email}`} className="primary-button">
+                <Link
+                  href={`mailto:${data.contact.email}`}
+                  className="primary-button"
+                >
                   Email Me
                   <Mail className="h-4 w-4" />
                 </Link>
-                <Link href={`tel:${data.contact.phone.replace(/\s+/g, "")}`} className="secondary-button">
+                <Link
+                  href={`tel:${data.contact.phone.replace(/\s+/g, "")}`}
+                  className="secondary-button"
+                >
                   Call Me
                   <Phone className="h-4 w-4" />
                 </Link>
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-1">
               <Link
                 href={`mailto:${data.contact.email}`}
                 className="contact-card rounded-[1.7rem] p-5 hover:border-[rgba(239,189,84,0.35)]"
@@ -464,7 +535,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.26em] text-[var(--gold)]">
                   Email
                 </p>
-                <p className="mt-2 break-all text-sm leading-7 text-white/82">{data.contact.email}</p>
+                <p className="mt-2 break-all text-sm leading-7 text-white/82">
+                  {data.contact.email}
+                </p>
               </Link>
 
               <Link
@@ -475,7 +548,9 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.26em] text-[var(--gold)]">
                   Phone
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/82">{data.contact.phone}</p>
+                <p className="mt-2 text-sm leading-7 text-white/82">
+                  {data.contact.phone}
+                </p>
               </Link>
 
               <div className="contact-card rounded-[1.7rem] p-5">
@@ -483,14 +558,17 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.26em] text-[var(--gold)]">
                   Location
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/82">{data.contact.location}</p>
+                <p className="mt-2 text-sm leading-7 text-white/82">
+                  {data.contact.location}
+                </p>
               </div>
             </div>
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
             {data.socials.map((social) => {
-              const Icon = socialIcons[social.label as keyof typeof socialIcons];
+              const Icon =
+                socialIcons[social.label as keyof typeof socialIcons];
 
               return (
                 <Link
@@ -498,7 +576,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="social-chip"
+                  className="social-chip transition-all duration-200 hover:scale-105"
                 >
                   <Icon className="h-4 w-4" />
                   {social.label}

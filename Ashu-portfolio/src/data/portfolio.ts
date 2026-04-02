@@ -58,7 +58,8 @@ export const portfolioData = {
   },
   story: {
     eyebrow: "About",
-    title: "From polished frontend delivery to building expansive AI and enterprise architectures.",
+    title:
+      "From polished frontend delivery to building expansive AI and enterprise architectures.",
     paragraphs: [
       "As a software engineer with over 4 years of dedicated experience, my core expertise revolves around React.js, Next.js, TypeScript, and modern state management ecosystems. I thrive on translating complex business requirements into high-performance, maintainable user interfaces that feel visually premium.",
       "My recent focus targets highly interactive AI-powered SaaS platforms and enterprise multi-tenant dashboards. Whether it's rendering realtime 3D avatars, streamlining legacy lead management systems, or maintaining robust client portals, scaling frontend codebases elegantly is my priority.",
@@ -66,7 +67,10 @@ export const portfolioData = {
     ],
   },
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/ashutosh-savani-a3772a228/" },
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/ashutosh-savani-a3772a228/",
+    },
     { label: "GitHub", href: "https://github.com/Ashu99op" },
     { label: "Instagram", href: "https://www.instagram.com/l_ashuuuuu_l/" },
   ] satisfies SocialItem[],
@@ -88,7 +92,14 @@ export const portfolioData = {
         "Engineered comprehensive role-based admin and client dashboards with heavy data analytics, content management, and configuration flows for a multi-tenant B2B AI platform.",
         "Operated directly in high-stakes client meetings to gather requirements, demo progress, and ship rapid feedback-driven updates across parallel projects.",
       ],
-      stack: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Zustand", "Three.js"],
+      stack: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zustand",
+        "Three.js",
+      ],
     },
     {
       company: "Brainvire Infotech Pvt. Ltd.",
@@ -102,7 +113,14 @@ export const portfolioData = {
         "Improved sophisticated reusable UI components and frontend workflows, increasing overall team development efficiency by 20% and guaranteeing optimal performance.",
         "Consistently shipped advanced client-specific features scheduled tightly across continuous agile sprints for over 2 years.",
       ],
-      stack: ["React", "Redux", "Material UI", "JavaScript", "GraphQL", "Agile Execution"],
+      stack: [
+        "React",
+        "Redux",
+        "Material UI",
+        "JavaScript",
+        "GraphQL",
+        "Agile Execution",
+      ],
     },
     {
       company: "iBoon Technologies",
@@ -133,20 +151,57 @@ export const portfolioData = {
   ] satisfies ExperienceItem[],
   skills: [
     {
-      title: "Frontend & Architecture",
-      items: ["React.js", "Next.js", "Vue.js", "TypeScript", "JavaScript (ES6+)", "HTML5"],
+      title: "Frontend Engineering",
+      items: [
+        "React.js",
+        "Next.js",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript",
+        "SCSS",
+        "CSS",
+        "HTML",
+      ],
     },
     {
-      title: "Styling, UI & Visuals",
-      items: ["Tailwind CSS", "Three.js", "React Three Fiber", "Shadcn UI", "Material UI", "Framer Motion"],
+      title: "UI Design & Layout",
+      items: [
+        "Tailwind CSS",
+        "Material UI",
+        "Shadcn UI",
+        "Bootstrap",
+        "Responsive Design",
+      ],
     },
     {
-      title: "State, Data & Backend",
-      items: ["Redux", "Zustand", "Context API", "TanStack Query", "GraphQL", "Node.js"],
+      title: "Logic, State & Backend",
+      items: [
+        "Redux",
+        "Zustand",
+        "Node.js",
+        "Express.js",
+        "REST APIs",
+        "GraphQL",
+        "TanStack Query",
+      ],
     },
     {
-      title: "Ecosystem & Workflow",
-      items: ["Git/GitHub/GitLab", "Azure", "Figma", "Cursor", "Windsurf", "Claude / ChatGPT"],
+      title: "AI Tools & Ecosystem",
+      items: [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Gemini",
+        "v0.dev",
+        "Bolt.new",
+        "Git / GitHub",
+        "Azure / Vercel",
+        "npm / yarn",
+      ],
+    },
+    {
+      title: "3D Visuals & Motion",
+      items: ["Three.js", "React Three Fiber", "Framer Motion"],
     },
   ] satisfies SkillGroup[],
   projects: [
@@ -173,7 +228,7 @@ export const portfolioData = {
     {
       name: "Edu Bridge Insight",
       year: "2024",
-      image: "/project/edu-bridge.png", 
+      image: "/project/edu-bridge.png",
       description:
         "An intricate EdTech platform featuring AI-analyzed academic insights, generating complex visual data-reports via LLMs directly, powered by Stripe billing and role-based ACLs for massive educator scaling.",
       tags: ["React", "TypeScript", "Data Visualization", "Stripe", "LLM APIs"],
@@ -183,7 +238,7 @@ export const portfolioData = {
     {
       name: "Pidilite Mpower LMS",
       year: "2023",
-      image: "/project/pidilite.png", 
+      image: "/project/pidilite.png",
       description:
         "The flagship enterprise Lead Management System custom-engineered for Pidilite. Handles vast pipelines, granular assignments, tracking, and analytics seamlessly across nationwide employee branches.",
       tags: ["React", "Redux Toolkit", "Material UI", "Enterprise Scale"],

@@ -853,18 +853,6 @@ img {
   background: rgba(255, 255, 255, 0.06);
 }
 
-.portfolio-footer {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  color: rgba(255, 255, 255, 0.48);
-  font-size: 0.82rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
 
 .cursor-aura-layer {
   position: fixed;
@@ -881,13 +869,6 @@ img {
 .cursor-spark {
   position: absolute;
   translate: -50% -50%;
-}
-
-.cursor-spotlight {
-  inset: 0;
-  translate: 0 0;
-  mix-blend-mode: screen;
-  transition: opacity 220ms ease;
 }
 
 .cursor-bloom {
@@ -993,11 +974,6 @@ img {
   .hero-rings {
     width: min(24rem, 68vw);
     top: 2rem;
-  }
-
-  .portfolio-footer {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 

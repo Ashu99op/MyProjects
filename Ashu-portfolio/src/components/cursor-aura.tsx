@@ -31,21 +31,8 @@ export default function CursorAura() {
   const squish = useSpring(1, { stiffness: 180, damping: 22, mass: 0.4 });
   const sparkOpacity = useTransform(velocity, [0, 15, 40], [0, 0.5, 1]);
 
-  // Hardware-accelerated offsets (subtracting half the width/height of elements)
-  const spotX = useTransform(bloomX, (x) => x - 600);
-  const spotY = useTransform(bloomY, (y) => y - 600);
-  
-  const bloomOffsetX = useTransform(bloomX, (x) => x - 128); // 256/2
-  const bloomOffsetY = useTransform(bloomY, (y) => y - 128);
-  
-  const ribbonOffsetX = useTransform(haloX, (x) => x - 24); // 48/2
-  const ribbonOffsetY = useTransform(haloY, (y) => y - 24);
-  
-  const ringOffsetX = useTransform(haloX, (x) => x - 16); // 32/2
-  const ringOffsetY = useTransform(haloY, (y) => y - 16);
-  
-  const coreOffsetX = useTransform(coreX, (x) => x - 5); // 10/2
-  const coreOffsetY = useTransform(coreY, (y) => y - 5);
+  // All elements use CSS translate(-50%,-50%) to center on pointer
+  // So we just pass rawX/rawY directly as x/y to each element
 
   useEffect(() => {
     if (reduceMotion) return;
@@ -114,33 +101,42 @@ export default function CursorAura() {
 
   return (
     <div className="cursor-aura-layer fixed inset-0" aria-hidden="true" style={{ mixBlendMode: 'screen', zIndex: 9999, pointerEvents: 'none' }}>
+      {/* Large ambient spotlight — centered via CSS -50%/-50% translate */}
       <motion.div 
-        className="cursor-spotlight absolute top-0 left-0 w-[1200px] h-[1200px] pointer-events-none rounded-full" 
+        className="absolute top-0 left-0 w-[1200px] h-[1200px] pointer-events-none rounded-full" 
         style={{ 
           background: "radial-gradient(circle, rgba(123, 194, 214, 0.12) 0%, rgba(239, 189, 84, 0.08) 25%, rgba(214, 90, 61, 0.05) 50%, transparent 70%)",
-          x: spotX,
-          y: spotY,
+          x: bloomX,
+          y: bloomY,
+          translateX: "-50%",
+          translateY: "-50%",
           opacity: active ? 1 : 0 
         }} 
       />
 
+      {/* Mid bloom glow */}
       <motion.div
-        className="cursor-bloom absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-64 h-64 rounded-full pointer-events-none"
         style={{
           background: "radial-gradient(circle, rgba(239, 189, 84, 0.25) 0%, transparent 65%)",
-          x: bloomOffsetX,
-          y: bloomOffsetY,
+          x: bloomX,
+          y: bloomY,
+          translateX: "-50%",
+          translateY: "-50%",
           opacity: active ? 0.8 : 0,
           scale: pressed ? 1.15 : 1,
         }}
       />
 
+      {/* Ribbon ring */}
       <motion.div
-        className="cursor-ribbon absolute top-0 left-0 w-12 h-12 border border-white/10 rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-12 h-12 border border-white/10 rounded-full pointer-events-none"
         style={{
           background: "radial-gradient(circle, rgba(123, 194, 214, 0.15) 0%, transparent 80%)",
-          x: ribbonOffsetX,
-          y: ribbonOffsetY,
+          x: haloX,
+          y: haloY,
+          translateX: "-50%",
+          translateY: "-50%",
           rotate: angle,
           scaleX: stretch,
           scaleY: squish,
@@ -148,43 +144,52 @@ export default function CursorAura() {
         }}
       />
 
+      {/* Outer ring */}
       <motion.div
-        className="cursor-ring absolute top-0 left-0 w-8 h-8 border border-[rgba(239,189,84,0.4)] rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-8 h-8 border border-[rgba(239,189,84,0.4)] rounded-full pointer-events-none"
         style={{
-          x: ringOffsetX,
-          y: ringOffsetY,
+          x: haloX,
+          y: haloY,
+          translateX: "-50%",
+          translateY: "-50%",
           opacity: active ? 1 : 0,
           scale: pressed ? 0.65 : 1,
         }}
       />
 
+      {/* Spark trailing dots */}
       <motion.div
-        className="cursor-spark cursor-spark-one absolute top-0 left-0 w-1.5 h-1.5 bg-[#efbd54] rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-1.5 h-1.5 bg-[#efbd54] rounded-full pointer-events-none"
         style={{
-          x: ribbonOffsetX,
-          y: ribbonOffsetY,
+          x: haloX,
+          y: haloY,
+          translateX: "calc(-50% - 24px)",
+          translateY: "-50%",
           rotate: angle,
-          translateX: -24,
           opacity: active ? 0.8 : 0,
         }}
       />
 
       <motion.div
-        className="cursor-spark cursor-spark-two absolute top-0 left-0 w-2 h-2 bg-[#7bc2d6] rounded-full pointer-events-none"
+        className="absolute top-0 left-0 w-2 h-2 bg-[#7bc2d6] rounded-full pointer-events-none"
         style={{
-          x: ribbonOffsetX,
-          y: ribbonOffsetY,
+          x: haloX,
+          y: haloY,
+          translateX: "calc(-50% + 24px)",
+          translateY: "-50%",
           rotate: angle,
-          translateX: 24,
           opacity: active ? sparkOpacity : 0,
         }}
       />
 
+      {/* Crisp core dot */}
       <motion.div
-        className="cursor-core absolute top-0 left-0 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)] pointer-events-none"
+        className="absolute top-0 left-0 w-2.5 h-2.5 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)] pointer-events-none"
         style={{
-          x: coreOffsetX,
-          y: coreOffsetY,
+          x: coreX,
+          y: coreY,
+          translateX: "-50%",
+          translateY: "-50%",
           opacity: active ? 1 : 0,
           scale: pressed ? 0.8 : 1,
         }}
