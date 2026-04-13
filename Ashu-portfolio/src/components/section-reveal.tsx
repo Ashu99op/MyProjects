@@ -5,11 +5,13 @@ import type { HTMLMotionProps } from "framer-motion";
 
 type SectionRevealProps = HTMLMotionProps<"div"> & {
   delay?: number;
+  priority?: boolean;
 };
 
 export default function SectionReveal({
   children,
   delay = 0,
+  priority = false,
   transition,
   ...props
 }: SectionRevealProps) {
@@ -18,9 +20,11 @@ export default function SectionReveal({
   return (
     <motion.div
       initial={
-        reduceMotion
-          ? { opacity: 0 }
-          : { opacity: 0, y: 30, scale: 0.985, filter: "blur(12px)" }
+        priority 
+          ? false 
+          : reduceMotion
+            ? { opacity: 0 }
+            : { opacity: 0, y: 30, scale: 0.985, filter: "blur(12px)" }
       }
       whileInView={
         reduceMotion

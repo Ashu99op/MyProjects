@@ -272,7 +272,7 @@ export default function PortfolioPage({ data }: PortfolioPageProps) {
         <div className="hero-backlight" />
 
         <div className="max-w-4xl w-full mx-auto relative z-10">
-          <SectionReveal className="space-y-8 flex flex-col items-center">
+          <SectionReveal priority={true} className="space-y-8 flex flex-col items-center">
             <span className="section-label inline-flex">
               <Sparkles className="h-3.5 w-3.5 text-[var(--gold)]" />
               {data.hero.badge}

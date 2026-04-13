@@ -14,6 +14,10 @@ export default function CursorAura() {
   const [active, setActive] = useState(false);
   const [pressed, setPressed] = useState(false);
 
+  // Skip completely on touch devices — saves massive JS execution on mobile!
+  const isTouchDevice = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+  if (isTouchDevice || reduceMotion) return null;
+
   const pointerX = useMotionValue(-1000);
   const pointerY = useMotionValue(-1000);
   const velocity = useMotionValue(0);
