@@ -83,10 +83,10 @@ export default function CursorAura() {
       velocity.set(0);
     };
 
-    window.addEventListener("pointermove", handlePointerMove);
-    window.addEventListener("pointerdown", handlePointerDown);
-    window.addEventListener("pointerup", handlePointerUp);
-    window.addEventListener("pointerleave", handlePointerLeave);
+    window.addEventListener("pointermove", handlePointerMove, { passive: true });
+    window.addEventListener("pointerdown", handlePointerDown, { passive: true });
+    window.addEventListener("pointerup", handlePointerUp, { passive: true });
+    window.addEventListener("pointerleave", handlePointerLeave, { passive: true });
 
     return () => {
       window.removeEventListener("pointermove", handlePointerMove);

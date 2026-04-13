@@ -16,10 +16,12 @@ import {
   Sparkles,
   Workflow,
 } from "lucide-react";
-import CursorAura from "@/components/cursor-aura";
+import dynamic from "next/dynamic";
 import SectionReveal from "@/components/section-reveal";
-import AmbientBackground from "@/components/ambient-background";
 import type { PortfolioData } from "@/data/portfolio";
+
+const CursorAura = dynamic(() => import("@/components/cursor-aura"), { ssr: false });
+const AmbientBackground = dynamic(() => import("@/components/ambient-background"), { ssr: false });
 
 type PortfolioPageProps = {
   data: PortfolioData;
