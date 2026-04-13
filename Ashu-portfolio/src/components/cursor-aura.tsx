@@ -14,10 +14,6 @@ export default function CursorAura() {
   const [active, setActive] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  // Skip completely on touch devices — saves massive JS execution on mobile!
-  const isTouchDevice = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
-  if (isTouchDevice || reduceMotion) return null;
-
   const pointerX = useMotionValue(-1000);
   const pointerY = useMotionValue(-1000);
   const velocity = useMotionValue(0);
@@ -101,7 +97,8 @@ export default function CursorAura() {
     };
   }, [angle, pointerX, pointerY, reduceMotion, stretch, squish, velocity]);
 
-  if (reduceMotion) return null;
+  const isTouchDevice = typeof window !== "undefined" && window.matchMedia("(pointer: coarse)").matches;
+  if (isTouchDevice || reduceMotion) return null;
 
   return (
     <div className="cursor-aura-layer fixed inset-0" aria-hidden="true" style={{ mixBlendMode: 'screen', zIndex: 9999, pointerEvents: 'none' }}>

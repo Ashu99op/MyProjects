@@ -68,6 +68,7 @@ export default function AmbientBackground() {
   const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     if (window.matchMedia("(pointer: coarse)").matches || window.innerWidth < 768) {
       setIsMobile(true);
